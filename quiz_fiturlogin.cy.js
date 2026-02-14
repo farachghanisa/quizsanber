@@ -37,4 +37,16 @@ describe ('Fitur Login', () => {
         cy.get('button[type="submit"]').click()
         cy.contains('Invalid credentials').should('be.visible')
     })
+    it('TC06 - Login dengan username kosong', () => {
+        cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+        cy.get('input[name="password"]').type('admin123')
+        cy.get('button[type="submit"]').click()
+        cy.contains('Required').should('be.visible')
+    })
+    it('TC07 - Login dengan username kosong', () => {
+        cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+        cy.get('input[name="username"]').type('admin')
+        cy.get('button[type="submit"]').click()
+        cy.contains('Required').should('be.visible')
+    })
 })
